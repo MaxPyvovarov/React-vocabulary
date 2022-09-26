@@ -1,22 +1,24 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {testRedux} from '../../store/actions/vocabulary';
 
+import styles from './Vocabulary.module.scss';
+import Navbar from '../Navbar/Navbar';
+
 const Vocabulary = props => {
-	console.log(props);
 	return (
-		<div>
-			<p>Hello from vocabulary</p>
-			<button onClick={props.testRedux}>Add new pair</button>
-			{props.vocabulary.map(pair => (
-				<p key={pair.id}>
-					{pair.eng} --- {pair.ukr}
-				</p>
-			))}
-			<br></br>
-			<NavLink to='/add'>Go to add page</NavLink>
-		</div>
+		<>
+			<Navbar />
+			<div className={styles.container}>
+				<p className={styles.greet}>Hello from vocabulary</p>
+				<button onClick={props.testRedux}>Add new pair</button>
+				{props.vocabulary.map(pair => (
+					<p key={pair.id}>
+						{pair.eng} --- {pair.ukr}
+					</p>
+				))}
+			</div>
+		</>
 	);
 };
 

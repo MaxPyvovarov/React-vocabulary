@@ -1,0 +1,15 @@
+.navbar {
+	@apply w-full bg-slate-600 shadow-sm py-2.5 px-5;
+}
+
+.list {
+	@apply flex gap-10 justify-center;
+}
+
+.listItem {
+	@apply text-white ease-in-out duration-300;
+
+	&:hover {
+		@apply scale-125;
+	}
+}
