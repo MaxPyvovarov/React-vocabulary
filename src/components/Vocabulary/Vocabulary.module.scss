@@ -1,7 +1,11 @@
 .container {
-	@apply w-3/4 mx-auto;
+	@apply w-1/2 mx-auto border border-white rounded-lg py-3 px-5 bg-white bg-opacity-25;
 }
 
-.greet {
-	@appl;
+.add {
+	@apply self-start bg-white  rounded-lg px-3 py-1 transition-all duration-200;
+
+	&:hover {
+		@apply bg-opacity-80;
+	}
 }

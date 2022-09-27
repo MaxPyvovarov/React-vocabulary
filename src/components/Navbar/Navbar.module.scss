@@ -1,15 +1,15 @@
 .navbar {
-	@apply w-full bg-slate-600 shadow-sm py-2.5 px-5;
+	@apply w-full bg-transparent py-2.5 px-5 mb-6;
 }
 
 .list {
-	@apply flex gap-10 justify-center;
+	@apply flex gap-10 justify-center mt-3;
 }
 
 .listItem {
-	@apply text-white ease-in-out duration-300;
+	@apply text-black ease-in-out duration-200 px-3 py-2 rounded-xl bg-gray-100;
 
 	&:hover {
-		@apply scale-125;
+		@apply bg-opacity-90 shadow-md shadow-black cursor-pointer;
 	}
 }

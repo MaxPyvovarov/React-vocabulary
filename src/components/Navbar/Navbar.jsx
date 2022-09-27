@@ -7,11 +7,15 @@ export default function Navbar() {
 	return (
 		<div className={styles.navbar}>
 			<ul className={styles.list}>
-				<li className={styles.listItem}>
-					<NavLink to='/'>Home</NavLink>
+				<li>
+					<NavLink to='/' className={styles.listItem}>
+						Home
+					</NavLink>
 				</li>
-				<li className={styles.listItem}>
-					<NavLink to='/add'>Add new word</NavLink>
+				<li>
+					<NavLink to='/exam' className={styles.listItem}>
+						Take a test
+					</NavLink>
 				</li>
 			</ul>
 		</div>

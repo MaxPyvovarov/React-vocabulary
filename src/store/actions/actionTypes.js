@@ -1,1 +1,1 @@
-export const TEST_REDUX = 'TEST_REDUX';
+export const ADD_NEW_WORD = 'ADD_NEW_WORD';

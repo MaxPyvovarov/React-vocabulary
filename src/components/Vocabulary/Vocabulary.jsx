@@ -1,22 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {testRedux} from '../../store/actions/vocabulary';
+import WordList from '../WordList/WordList';
+import Navbar from '../Navbar/Navbar';
 
 import styles from './Vocabulary.module.scss';
-import Navbar from '../Navbar/Navbar';
 
 const Vocabulary = props => {
 	return (
 		<>
 			<Navbar />
 			<div className={styles.container}>
-				<p className={styles.greet}>Hello from vocabulary</p>
-				<button onClick={props.testRedux}>Add new pair</button>
-				{props.vocabulary.map(pair => (
-					<p key={pair.id}>
-						{pair.eng} --- {pair.ukr}
-					</p>
-				))}
+				<button className={styles.add} onClick={props.testRedux}>
+					Add new word +
+				</button>
+				<WordList />
 			</div>
 		</>
 	);

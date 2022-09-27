@@ -1,9 +1,8 @@
-import {TEST_REDUX} from './actionTypes';
+import {ADD_NEW_WORD} from './actionTypes';
 
 export function testRedux() {
-	console.log('action');
 	return {
-		type: TEST_REDUX,
+		type: ADD_NEW_WORD,
 		pair: {id: Date.now(), eng: 'cat', ukr: 'кот'},
 	};
 }
