@@ -1,7 +1,7 @@
 import {ADD_NEW_WORD} from '../actions/actionTypes';
 
 const initialState = {
-	vocabulary: [{id: 1, eng: 'dog', ukr: 'собака'}],
+	vocabulary: [],
 };
 
 export default function vocabularyReducer(state = initialState, action) {

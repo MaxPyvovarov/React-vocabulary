@@ -1,0 +1,31 @@
+.container {
+	@apply w-1/2 mx-auto border border-white rounded-lg py-3 px-5 bg-white bg-opacity-25;
+}
+
+.heading {
+	@apply font-bold text-xl text-white;
+}
+
+.form {
+	@apply flex flex-col justify-around py-5;
+
+	label {
+		@apply text-white;
+	}
+
+	input {
+		@apply outline-none rounded-lg px-2 py-1;
+	}
+}
+
+.inputWrapper {
+	@apply flex flex-col mb-4;
+}
+
+.submitBtn {
+	@apply bg-indigo-700 text-white rounded-lg px-3 py-2 transition-colors duration-200;
+
+	&:hover {
+		@apply bg-indigo-800;
+	}
+}
