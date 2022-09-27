@@ -1,8 +1,8 @@
 import {ADD_NEW_WORD} from './actionTypes';
 
-export function testRedux() {
+export function addNewWord() {
 	return {
 		type: ADD_NEW_WORD,
-		pair: {id: Date.now(), eng: 'cat', ukr: 'кот'},
+		payload: {id: Date.now(), eng: 'cat', ukr: 'кот'},
 	};
 }

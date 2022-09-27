@@ -1,5 +1,10 @@
 import React from 'react';
+import Navbar from '../Navbar/Navbar';
 
 export default function NewWordPage() {
-	return <div>Hello from new word page</div>;
+	return (
+		<>
+			<Navbar />
+		</>
+	);
 }

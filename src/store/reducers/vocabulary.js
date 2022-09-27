@@ -9,7 +9,7 @@ export default function vocabularyReducer(state = initialState, action) {
 		case ADD_NEW_WORD:
 			return {
 				...state,
-				vocabulary: [...state.vocabulary, action.pair],
+				vocabulary: [...state.vocabulary, action.payload],
 			};
 		default:
 			return state;

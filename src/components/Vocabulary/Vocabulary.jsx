@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {testRedux} from '../../store/actions/vocabulary';
+import {addNewWord} from '../../store/actions/vocabulary';
+import {NavLink} from 'react-router-dom';
 import WordList from '../WordList/WordList';
 import Navbar from '../Navbar/Navbar';
+import AddIcon from '../UI/AddIcon';
 
 import styles from './Vocabulary.module.scss';
 
@@ -11,8 +13,12 @@ const Vocabulary = props => {
 		<>
 			<Navbar />
 			<div className={styles.container}>
-				<button className={styles.add} onClick={props.testRedux}>
-					Add new word +
+				<NavLink to='/add' className={styles.add}>
+					<AddIcon />
+					Add new word
+				</NavLink>
+				<button className={styles.add} onClick={props.addNewWord}>
+					Add new word
 				</button>
 				<WordList />
 			</div>
@@ -28,7 +34,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		testRedux: () => dispatch(testRedux()),
+		addNewWord: () => dispatch(addNewWord()),
 	};
 }
 
