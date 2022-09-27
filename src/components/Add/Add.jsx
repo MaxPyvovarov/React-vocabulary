@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Navbar from '../Navbar/Navbar';
 import {connect} from 'react-redux';
+import {useNavigate} from 'react-router-dom';
 
 import styles from './Add.module.scss';
 import {addNewWord} from '../../store/actions/vocabulary';
@@ -9,6 +10,7 @@ function Add(props) {
 	const [eng, setEng] = useState('');
 	const [ukr, setUkr] = useState('');
 	const [isFormValid, setIsFormValid] = useState(true);
+	const navigate = useNavigate();
 
 	function submitHandler(e) {
 		e.preventDefault();
@@ -17,6 +19,7 @@ function Add(props) {
 			setEng('');
 			setUkr('');
 			setIsFormValid(true);
+			navigate('/');
 		} else {
 			setIsFormValid(false);
 		}

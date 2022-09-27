@@ -1,9 +1,11 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import styles from './Navbar.module.scss';
 
-export default function Navbar() {
+function Navbar(props) {
+	console.log(props);
 	return (
 		<div className={styles.navbar}>
 			<ul className={styles.list}>
@@ -12,12 +14,22 @@ export default function Navbar() {
 						Home
 					</NavLink>
 				</li>
-				<li>
-					<NavLink to='/exam' className={styles.listItem}>
-						Take a test
-					</NavLink>
-				</li>
+				{props.words.length >= 10 && (
+					<li>
+						<NavLink to='/exam' className={styles.listItem}>
+							Take a test
+						</NavLink>
+					</li>
+				)}
 			</ul>
 		</div>
 	);
 }
+
+function mapStateToProps(state) {
+	return {
+		words: state.vocabulary.vocabulary,
+	};
+}
+
+export default connect(mapStateToProps)(Navbar);

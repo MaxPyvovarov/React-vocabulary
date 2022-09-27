@@ -10,7 +10,7 @@
 	@apply flex flex-col justify-around py-5;
 
 	label {
-		@apply text-white;
+		@apply text-white font-semibold;
 	}
 
 	input {
