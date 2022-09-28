@@ -16,11 +16,17 @@ function Vocabulary(props) {
 				<div className={styles.header}>
 					<NavLink to='/add' className={styles.add}>
 						<AddIcon />
-						Add new word
+						Додати слово
 					</NavLink>
 					{wordsQuantity > 0 && (
 						<p className={styles.counter}>
-							You have {wordsQuantity} word(s) in your vocabulary! Keep going!
+							Кількість слів:{' '}
+							<span className={styles.number}>{wordsQuantity}</span>
+							{wordsQuantity < 10
+								? `. Додайте ще ${
+										10 - wordsQuantity
+								  } щоб пройти Ваш перший тест!`
+								: '. Так тримати!'}
 						</p>
 					)}
 				</div>

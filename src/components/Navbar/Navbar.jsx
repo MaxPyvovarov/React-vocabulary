@@ -11,13 +11,13 @@ function Navbar(props) {
 			<ul className={styles.list}>
 				<li>
 					<NavLink to='/' className={styles.listItem}>
-						Home
+						Головна
 					</NavLink>
 				</li>
 				{props.words.length >= 10 && (
 					<li>
 						<NavLink to='/exam' className={styles.listItem}>
-							Take a test
+							Повторити слова
 						</NavLink>
 					</li>
 				)}
