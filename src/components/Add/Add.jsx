@@ -33,32 +33,32 @@ function Add(props) {
 		<>
 			<Navbar />
 			<div className={styles.container}>
-				<h2 className={styles.heading}>Add a new word to your vocabulary</h2>
+				<h2 className={styles.heading}>Додати нове слово у словник</h2>
 				<form className={styles.form} onSubmit={submitHandler}>
 					<div className={styles.inputWrapper}>
-						<label htmlFor='engInput'>English translation</label>
+						<label htmlFor='engInput'>Англійський переклад</label>
 						<input
 							type='text'
 							id='engInput'
-							placeholder='New word...'
+							placeholder='Нове слово...'
 							value={eng}
 							onChange={e => setEng(e.target.value)}
 							required
 						/>
 					</div>
 					<div className={styles.inputWrapper}>
-						<label htmlFor='ukrInput'>Ukrainian translation</label>
+						<label htmlFor='ukrInput'>Український переклад</label>
 						<input
 							type='text'
 							id='ukrInput'
-							placeholder='New word...'
+							placeholder='Нове слово...'
 							value={ukr}
 							onChange={e => setUkr(e.target.value)}
 							required
 						/>
 					</div>
 					{isFormValid || <span className={styles.error}>Form is invalid</span>}
-					<button className={styles.submitBtn}>Save</button>
+					<button className={styles.submitBtn}>Додати</button>
 				</form>
 			</div>
 		</>

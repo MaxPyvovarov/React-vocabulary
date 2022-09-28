@@ -33,7 +33,7 @@ function Vocabulary(props) {
 				{wordsQuantity > 0 ? (
 					<WordList />
 				) : (
-					<p className={styles.warning}>You have not added any words yet</p>
+					<p className={styles.warning}>Ваш словник порожній :(</p>
 				)}
 			</div>
 		</>
