@@ -1,13 +1,13 @@
 .container {
-	@apply w-1/2 mx-auto border border-white rounded-lg py-3 px-5 bg-white bg-opacity-25;
+	@apply w-2/3 mx-auto border border-white rounded-lg py-3 px-5 bg-white bg-opacity-25;
 }
 
 .header {
-	@apply flex justify-between items-center;
+	@apply flex justify-between items-center sm:flex-col-reverse lg:flex-row;
 }
 
 .counter {
-	@apply font-bold text-white;
+	@apply font-bold text-white sm:text-center sm:w-full lg:text-end;
 
 	.number {
 		@apply text-indigo-800;
@@ -15,10 +15,10 @@
 }
 
 .add {
-	@apply self-start bg-white  rounded-lg px-2 py-1 transition-all duration-200 inline-block shrink-0;
+	@apply bg-white font-semibold text-center rounded-lg px-2 py-1 transition-all duration-200 inline-block shrink-0 sm:w-full sm:mt-4 lg:w-auto lg:mt-0;
 
 	&:hover {
-		@apply bg-opacity-80;
+		@apply bg-opacity-95 shadow-md shadow-gray-700;
 	}
 }
 
