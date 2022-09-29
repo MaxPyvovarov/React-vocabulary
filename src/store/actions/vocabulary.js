@@ -1,4 +1,8 @@
-import {ADD_NEW_WORD, CREATE_TEST} from './actionTypes';
+import {
+	ADD_NEW_WORD,
+	CREATE_TEST_START,
+	CREATE_TEST_SUCCESS,
+} from './actionTypes';
 
 export function addNewWord(eng, ukr) {
 	return {
@@ -44,13 +48,25 @@ export function generateTest(vocabulary) {
 			});
 		}
 
-		dispatch(createTest(test));
+		dispatch(createTestSuccess(test));
 	};
 }
 
-export function createTest(test) {
+export function createTestStart() {
 	return {
-		type: CREATE_TEST,
-		payload: test,
+		type: CREATE_TEST_START,
+		payload: {
+			loading: true,
+		},
+	};
+}
+
+export function createTestSuccess(test) {
+	return {
+		type: CREATE_TEST_SUCCESS,
+		payload: {
+			loading: false,
+			test,
+		},
 	};
 }

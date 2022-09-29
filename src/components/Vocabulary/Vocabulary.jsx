@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import WordList from '../WordList/WordList';
 import Navbar from '../Navbar/Navbar';
-import AddIcon from '../UI/AddIcon';
+import AddIcon from '../UI/AddIcon/AddIcon';
 import {connect} from 'react-redux';
 
 import styles from './Vocabulary.module.scss';

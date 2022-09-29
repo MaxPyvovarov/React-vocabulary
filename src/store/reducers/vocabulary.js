@@ -1,4 +1,8 @@
-import {ADD_NEW_WORD, CREATE_TEST} from '../actions/actionTypes';
+import {
+	ADD_NEW_WORD,
+	CREATE_TEST_START,
+	CREATE_TEST_SUCCESS,
+} from '../actions/actionTypes';
 
 const initialState = {
 	vocabulary: [
@@ -15,6 +19,7 @@ const initialState = {
 	],
 	results: {},
 	isFinished: false,
+	loading: false,
 	activeQuestion: 0,
 	test: null,
 };
@@ -26,10 +31,16 @@ export default function vocabularyReducer(state = initialState, action) {
 				...state,
 				vocabulary: [...state.vocabulary, action.payload],
 			};
-		case CREATE_TEST:
+		case CREATE_TEST_START:
 			return {
 				...state,
-				test: action.payload,
+				loading: action.payload.loading,
+			};
+		case CREATE_TEST_SUCCESS:
+			return {
+				...state,
+				loading: action.payload.loading,
+				test: action.payload.test,
 			};
 		default:
 			return state;

@@ -1,3 +1,4 @@
 export const ADD_NEW_WORD = 'ADD_NEW_WORD';
 
-export const CREATE_TEST = 'CREATE_TEST';
+export const CREATE_TEST_START = 'CREATE_TEST_START';
+export const CREATE_TEST_SUCCESS = 'CREATE_TEST_SUCCESS';
