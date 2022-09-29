@@ -2,6 +2,9 @@ import {
 	ADD_NEW_WORD,
 	CREATE_TEST_START,
 	CREATE_TEST_SUCCESS,
+	SELECT_ANSWER_SUCCESS,
+	SELECT_ANSWER_WRONG,
+	FINISH_TEST,
 } from './actionTypes';
 
 export function addNewWord(eng, ukr) {
@@ -68,5 +71,38 @@ export function createTestSuccess(test) {
 			loading: false,
 			test,
 		},
+	};
+}
+
+export function selectAnswer(question, activeQuestion, answer) {
+	return async dispatch => {
+		console.log(activeQuestion, answer);
+		if (activeQuestion >= 9) {
+			dispatch(finishTest());
+			return;
+		}
+		if (answer === question.rightAnswer) {
+			dispatch(selectAnswerSuccess());
+		} else {
+			dispatch(selectAnswerWrong());
+		}
+	};
+}
+
+export function selectAnswerSuccess() {
+	return {
+		type: SELECT_ANSWER_SUCCESS,
+	};
+}
+
+export function selectAnswerWrong() {
+	return {
+		type: SELECT_ANSWER_WRONG,
+	};
+}
+
+export function finishTest() {
+	return {
+		type: FINISH_TEST,
 	};
 }

@@ -4,6 +4,7 @@ import ActiveTest from '../ActiveTest/ActiveTest';
 import {connect} from 'react-redux';
 import {generateTest} from '../../store/actions/vocabulary';
 import Loader from '../UI/Loader/Loader';
+import Results from '../Results/Results';
 
 import styles from './Test.module.scss';
 
@@ -22,6 +23,8 @@ function Test(props) {
 				</p>
 				{props.loading || !props.test ? (
 					<Loader />
+				) : props.isFinished ? (
+					<Results />
 				) : (
 					<ActiveTest test={props.test} activeQuestion={props.activeQuestion} />
 				)}
@@ -36,6 +39,7 @@ function mapStateToProps(state) {
 		test: state.vocabulary.test,
 		loading: state.vocabulary.loading,
 		activeQuestion: state.vocabulary.activeQuestion,
+		isFinished: state.vocabulary.isFinished,
 	};
 }
 
