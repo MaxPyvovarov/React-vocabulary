@@ -9,6 +9,19 @@ import styles from './Vocabulary.module.scss';
 
 function Vocabulary(props) {
 	const wordsQuantity = props.words.length;
+
+	const getCounterMessage = quantity => {
+		return (
+			quantity > 0 && (
+				<p className={styles.counter}>
+					Кількість слів: <span className={styles.number}>{quantity}</span>
+					{quantity < 10
+						? `. Додайте ще ${10 - quantity} щоб пройти Ваш перший тест!`
+						: '. Так тримати!'}
+				</p>
+			)
+		);
+	};
 	return (
 		<>
 			<Navbar />
@@ -18,17 +31,7 @@ function Vocabulary(props) {
 						<AddIcon />
 						Додати слово
 					</NavLink>
-					{wordsQuantity > 0 && (
-						<p className={styles.counter}>
-							Кількість слів:{' '}
-							<span className={styles.number}>{wordsQuantity}</span>
-							{wordsQuantity < 10
-								? `. Додайте ще ${
-										10 - wordsQuantity
-								  } щоб пройти Ваш перший тест!`
-								: '. Так тримати!'}
-						</p>
-					)}
+					{getCounterMessage(wordsQuantity)}
 				</div>
 				{wordsQuantity > 0 ? (
 					<WordList />

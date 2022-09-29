@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import styles from './Navbar.module.scss';
 
 function Navbar(props) {
-	console.log(props);
 	return (
 		<div className={styles.navbar}>
 			<ul className={styles.list}>
@@ -16,7 +15,7 @@ function Navbar(props) {
 				</li>
 				{props.words.length >= 10 && (
 					<li>
-						<NavLink to='/exam' className={styles.listItem}>
+						<NavLink to='/test' className={styles.listItem}>
 							Повторити слова
 						</NavLink>
 					</li>
