@@ -1,0 +1,15 @@
+.listItem {
+	@apply grid grid-cols-3 text-lg font-semibold py-2 my-3 px-4 rounded-lg;
+
+	& > span {
+		@apply text-center;
+	}
+}
+
+.right {
+	@apply bg-green-500;
+}
+
+.wrong {
+	@apply bg-red-500;
+}

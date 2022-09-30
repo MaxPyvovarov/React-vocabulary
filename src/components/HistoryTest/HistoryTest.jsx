@@ -1,13 +1,31 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 
-function HistoryTest({activeHistoryTest}) {
-	return <div>id: {activeHistoryTest}</div>;
+import styles from './HistoryTest.module.scss';
+import HistoryTestList from './HistoryTestList/HistoryTestList';
+
+function HistoryTest({history}) {
+	return (
+		<>
+			<div className={styles.nav}>
+				<NavLink to='/history'>Назад</NavLink>
+			</div>
+			<div className={styles.container}>
+				<div className={styles.heading}>
+					<span>Питання</span>
+					<span>Ваша відповідь</span>
+					<span>Правильна відповідь</span>
+				</div>
+				<HistoryTestList />
+			</div>
+		</>
+	);
 }
 
 function mapStateToProps(state) {
 	return {
-		activeHistoryTest: state.vocabulary.activeHistoryTest,
+		history: state.vocabulary.history[state.vocabulary.activeHistoryTest],
 	};
 }
 

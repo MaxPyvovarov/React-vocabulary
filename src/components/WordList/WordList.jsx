@@ -8,8 +8,8 @@ function WordsList({words}) {
 	return (
 		<div>
 			<div className={styles.languages}>
-				<span>English</span>
-				<span>Ukrainian</span>
+				<span>Англійська</span>
+				<span>Українська</span>
 			</div>
 			{words.map(word => (
 				<WordListItem key={word.id} word={word} />

@@ -5,7 +5,7 @@ import {selectHistoryTest} from '../../../../store/actions/vocabulary';
 
 import styles from './HistoryListItem.module.scss';
 
-function HistoryListItem({test, index}) {
+function HistoryListItem({test, index, selectHistoryTest}) {
 	return (
 		<li>
 			<NavLink

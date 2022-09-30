@@ -1,3 +1,7 @@
 .listItem {
-	@apply bg-gray-100 rounded-lg py-2 px-8 my-3 flex justify-between text-lg font-semibold;
+	@apply bg-gray-100 rounded-lg py-2 px-8 my-3 flex justify-between text-lg font-semibold transition-colors duration-200;
+
+	&:hover {
+		@apply bg-gray-200;
+	}
 }
