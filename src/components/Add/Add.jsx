@@ -57,7 +57,11 @@ function Add(props) {
 							required
 						/>
 					</div>
-					{isFormValid || <span className={styles.error}>Form is invalid</span>}
+					{isFormValid || (
+						<span className={styles.error}>
+							Перевірте коректність введених слів
+						</span>
+					)}
 					<button className={styles.submitBtn}>Додати</button>
 				</form>
 			</div>

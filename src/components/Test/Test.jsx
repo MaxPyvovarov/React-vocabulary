@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import Navbar from '../Navbar/Navbar';
 import ActiveTest from '../ActiveTest/ActiveTest';
 import {connect} from 'react-redux';
 import {generateTest} from '../../store/actions/vocabulary';
@@ -15,8 +14,7 @@ function Test(props) {
 	}, []);
 
 	return (
-		<>
-			<Navbar />
+		<div className={styles.wrapper}>
 			<div className={styles.container}>
 				<p className={styles.question}>
 					<span></span>
@@ -29,7 +27,7 @@ function Test(props) {
 					<ActiveTest test={props.test} activeQuestion={props.activeQuestion} />
 				)}
 			</div>
-		</>
+		</div>
 	);
 }
 

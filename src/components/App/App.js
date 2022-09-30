@@ -4,6 +4,7 @@ import Add from '../Add/Add';
 import Test from '../Test/Test';
 
 import styles from './App.module.scss';
+import Results from '../Results/Results';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 					<Route path='/' exact element={<Vocabulary />}></Route>
 					<Route path='/add' exact element={<Add />}></Route>
 					<Route path='/test' exact element={<Test />}></Route>
+					<Route path='/results' exact element={<Results />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

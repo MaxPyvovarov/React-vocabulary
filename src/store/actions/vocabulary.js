@@ -16,6 +16,7 @@ export function addNewWord(eng, ukr) {
 
 export function generateTest(vocabulary) {
 	return async dispatch => {
+		dispatch(createTestStart());
 		const test = [];
 		const wordsMap = [...vocabulary];
 
@@ -76,8 +77,8 @@ export function createTestSuccess(test) {
 
 export function selectAnswer(question, activeQuestion, answer) {
 	return async dispatch => {
-		console.log(activeQuestion, answer);
 		if (activeQuestion >= 9) {
+			dispatch(selectAnswerSuccess());
 			dispatch(finishTest());
 			return;
 		}

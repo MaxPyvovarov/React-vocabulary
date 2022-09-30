@@ -1,10 +1,11 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {generateTest} from '../../store/actions/vocabulary';
 
 import styles from './Navbar.module.scss';
 
-function Navbar(props) {
+function Navbar({vocabulary, generateTest}) {
 	return (
 		<div className={styles.navbar}>
 			<ul className={styles.list}>
@@ -13,9 +14,13 @@ function Navbar(props) {
 						Головна
 					</NavLink>
 				</li>
-				{props.words.length >= 10 && (
+				{vocabulary.length >= 10 && (
 					<li>
-						<NavLink to='/test' className={styles.listItem}>
+						<NavLink
+							to='/test'
+							onClick={() => generateTest(vocabulary)}
+							className={styles.listItem}
+						>
 							Повторити слова
 						</NavLink>
 					</li>
@@ -27,8 +32,14 @@ function Navbar(props) {
 
 function mapStateToProps(state) {
 	return {
-		words: state.vocabulary.vocabulary,
+		vocabulary: state.vocabulary.vocabulary,
 	};
 }
 
-export default connect(mapStateToProps)(Navbar);
+function mapDispatchToProps(dispatch) {
+	return {
+		generateTest: vocabulary => dispatch(generateTest(vocabulary)),
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -1,5 +1,9 @@
+.wrapper {
+	@apply flex items-center min-h-screen;
+}
+
 .container {
-	@apply w-2/3 mx-auto border border-white rounded-lg py-3 px-5 bg-white bg-opacity-25;
+	@apply w-1/2 mx-auto border border-white rounded-lg py-3 px-5 bg-white bg-opacity-25;
 }
 
 .question {
