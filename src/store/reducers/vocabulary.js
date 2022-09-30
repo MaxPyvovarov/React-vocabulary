@@ -20,7 +20,7 @@ const initialState = {
 		{id: 9, eng: 'sun', ukr: 'сонце'},
 		{id: 10, eng: 'moon', ukr: 'луна'},
 	],
-	results: 0,
+	results: [],
 	isFinished: false,
 	loading: false,
 	activeQuestion: 0,
@@ -46,18 +46,19 @@ export default function vocabularyReducer(state = initialState, action) {
 				test: action.payload.test,
 				activeQuestion: 0,
 				isFinished: false,
-				results: 0,
+				results: [],
 			};
 		case SELECT_ANSWER_SUCCESS:
 			return {
 				...state,
 				activeQuestion: state.activeQuestion + 1,
-				results: state.results + 1,
+				results: [...state.results, action.payload],
 			};
 		case SELECT_ANSWER_WRONG:
 			return {
 				...state,
 				activeQuestion: state.activeQuestion + 1,
+				results: [...state.results, action.payload],
 			};
 		case FINISH_TEST:
 			return {

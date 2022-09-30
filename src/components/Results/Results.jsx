@@ -6,10 +6,11 @@ import {generateTest} from '../../store/actions/vocabulary';
 import styles from './Results.module.scss';
 
 function Results({results, vocabulary, generateTest}) {
+	console.log(results);
 	return (
 		<div className={styles.results}>
 			<h3 className={styles.heading}>Ваш результат</h3>
-			<p>{results * 10}%</p>
+			<p>{results.filter(answer => answer.status === 'right').length * 10}%</p>
 			<div className={styles.buttons}>
 				<button onClick={() => generateTest(vocabulary)}>
 					Спробувати ще раз

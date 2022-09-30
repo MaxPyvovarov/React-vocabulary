@@ -49,6 +49,7 @@ export function generateTest(vocabulary) {
 				question: word.eng,
 				rightAnswer: word.ukr,
 				answers: getRandomList(options, word.ukr),
+				status: '',
 			});
 		}
 
@@ -77,28 +78,30 @@ export function createTestSuccess(test) {
 
 export function selectAnswer(question, activeQuestion, answer) {
 	return async dispatch => {
-		if (activeQuestion >= 9) {
-			dispatch(selectAnswerSuccess());
-			dispatch(finishTest());
-			return;
-		}
 		if (answer === question.rightAnswer) {
-			dispatch(selectAnswerSuccess());
+			question.status = 'right';
+			dispatch(selectAnswerSuccess(question));
 		} else {
-			dispatch(selectAnswerWrong());
+			question.status = 'wrong';
+			dispatch(selectAnswerWrong(question));
+		}
+		if (activeQuestion >= 9) {
+			dispatch(finishTest());
 		}
 	};
 }
 
-export function selectAnswerSuccess() {
+export function selectAnswerSuccess(question) {
 	return {
 		type: SELECT_ANSWER_SUCCESS,
+		payload: question,
 	};
 }
 
-export function selectAnswerWrong() {
+export function selectAnswerWrong(question) {
 	return {
 		type: SELECT_ANSWER_WRONG,
+		payload: question,
 	};
 }
 
