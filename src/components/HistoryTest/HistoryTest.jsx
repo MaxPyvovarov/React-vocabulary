@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 import styles from './HistoryTest.module.scss';
 import HistoryTestList from './HistoryTestList/HistoryTestList';
 
-function HistoryTest({history}) {
+function HistoryTest() {
 	return (
 		<>
 			<div className={styles.nav}>
