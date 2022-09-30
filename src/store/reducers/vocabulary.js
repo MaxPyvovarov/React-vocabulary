@@ -8,34 +8,26 @@ import {
 	SELECT_HISTORY_TEST,
 } from '../actions/actionTypes';
 
-const initialState = {
-	words: [
-		{id: 1, eng: 'cat', ukr: 'кішка'},
-		{id: 2, eng: 'dog', ukr: 'собака'},
-		{id: 3, eng: 'dolphin', ukr: 'дельфін'},
-		{id: 4, eng: 'elephant', ukr: 'слон'},
-		{id: 5, eng: 'car', ukr: 'автомобіль'},
-		{id: 6, eng: 'man', ukr: 'чоловік'},
-		{id: 7, eng: 'woman', ukr: 'жінка'},
-		{id: 8, eng: 'smartphone', ukr: 'смартфон'},
-		{id: 9, eng: 'sun', ukr: 'сонце'},
-		{id: 10, eng: 'moon', ukr: 'луна'},
-	],
-	results: [],
-	history: [],
-	isFinished: false,
-	loading: false,
-	activeQuestion: 0,
-	test: null,
-	activeHistoryTest: null,
-};
+const initialState =
+	localStorage.getItem('reduxState') === null
+		? {
+				words: [],
+				results: [],
+				history: [],
+				isFinished: false,
+				loading: false,
+				activeQuestion: 0,
+				test: null,
+				activeHistoryTest: null,
+		  }
+		: JSON.parse(localStorage.getItem('reduxState')).vocabulary;
 
 export default function vocabularyReducer(state = initialState, action) {
 	switch (action.type) {
 		case ADD_NEW_WORD:
 			return {
 				...state,
-				words: [...state.vocabulary, action.payload],
+				words: [...state.words, action.payload],
 			};
 		case CREATE_TEST_START:
 			return {

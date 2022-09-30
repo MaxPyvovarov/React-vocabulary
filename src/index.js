@@ -15,6 +15,10 @@ const store = createStore(
 	composeEnhancers(applyMiddleware(thunk))
 );
 
+store.subscribe(() => {
+	localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+});
+
 const app = (
 	<Provider store={store}>
 		<App />
