@@ -5,10 +5,11 @@ import {
 	SELECT_ANSWER_SUCCESS,
 	SELECT_ANSWER_WRONG,
 	FINISH_TEST,
+	SELECT_HISTORY_TEST,
 } from '../actions/actionTypes';
 
 const initialState = {
-	vocabulary: [
+	words: [
 		{id: 1, eng: 'cat', ukr: 'кішка'},
 		{id: 2, eng: 'dog', ukr: 'собака'},
 		{id: 3, eng: 'dolphin', ukr: 'дельфін'},
@@ -21,10 +22,12 @@ const initialState = {
 		{id: 10, eng: 'moon', ukr: 'луна'},
 	],
 	results: [],
+	history: [],
 	isFinished: false,
 	loading: false,
 	activeQuestion: 0,
 	test: null,
+	activeHistoryTest: null,
 };
 
 export default function vocabularyReducer(state = initialState, action) {
@@ -32,7 +35,7 @@ export default function vocabularyReducer(state = initialState, action) {
 		case ADD_NEW_WORD:
 			return {
 				...state,
-				vocabulary: [...state.vocabulary, action.payload],
+				words: [...state.vocabulary, action.payload],
 			};
 		case CREATE_TEST_START:
 			return {
@@ -64,6 +67,12 @@ export default function vocabularyReducer(state = initialState, action) {
 			return {
 				...state,
 				isFinished: true,
+				history: [...state.history, state.results],
+			};
+		case SELECT_HISTORY_TEST:
+			return {
+				...state,
+				activeHistoryTest: action.payload,
 			};
 		default:
 			return state;

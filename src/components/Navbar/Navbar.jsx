@@ -15,15 +15,22 @@ function Navbar({vocabulary, generateTest}) {
 					</NavLink>
 				</li>
 				{vocabulary.length >= 10 && (
-					<li>
-						<NavLink
-							to='/test'
-							onClick={() => generateTest(vocabulary)}
-							className={styles.listItem}
-						>
-							Повторити слова
-						</NavLink>
-					</li>
+					<>
+						<li>
+							<NavLink
+								to='/test'
+								onClick={() => generateTest(vocabulary)}
+								className={styles.listItem}
+							>
+								Повторити слова
+							</NavLink>
+						</li>
+						<li>
+							<NavLink to='/history' className={styles.listItem}>
+								Історія тестів
+							</NavLink>
+						</li>
+					</>
 				)}
 			</ul>
 		</div>
@@ -32,7 +39,7 @@ function Navbar({vocabulary, generateTest}) {
 
 function mapStateToProps(state) {
 	return {
-		vocabulary: state.vocabulary.vocabulary,
+		vocabulary: state.vocabulary.words,
 	};
 }
 

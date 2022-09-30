@@ -20,7 +20,7 @@ function WordsList({words}) {
 
 function mapStateToProps(state) {
 	return {
-		words: state.vocabulary.vocabulary,
+		words: state.vocabulary.words,
 	};
 }
 

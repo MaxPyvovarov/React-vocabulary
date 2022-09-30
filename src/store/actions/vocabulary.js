@@ -5,6 +5,7 @@ import {
 	SELECT_ANSWER_SUCCESS,
 	SELECT_ANSWER_WRONG,
 	FINISH_TEST,
+	SELECT_HISTORY_TEST,
 } from './actionTypes';
 
 export function addNewWord(eng, ukr) {
@@ -49,6 +50,7 @@ export function generateTest(vocabulary) {
 				question: word.eng,
 				rightAnswer: word.ukr,
 				answers: getRandomList(options, word.ukr),
+				answer: '',
 				status: '',
 			});
 		}
@@ -78,6 +80,7 @@ export function createTestSuccess(test) {
 
 export function selectAnswer(question, activeQuestion, answer) {
 	return async dispatch => {
+		question.answer = answer;
 		if (answer === question.rightAnswer) {
 			question.status = 'right';
 			dispatch(selectAnswerSuccess(question));
@@ -108,5 +111,12 @@ export function selectAnswerWrong(question) {
 export function finishTest() {
 	return {
 		type: FINISH_TEST,
+	};
+}
+
+export function selectHistoryTest(id) {
+	return {
+		type: SELECT_HISTORY_TEST,
+		payload: id,
 	};
 }

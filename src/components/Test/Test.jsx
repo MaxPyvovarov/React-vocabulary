@@ -33,7 +33,7 @@ function Test(props) {
 
 function mapStateToProps(state) {
 	return {
-		vocabulary: state.vocabulary.vocabulary,
+		vocabulary: state.vocabulary.words,
 		test: state.vocabulary.test,
 		loading: state.vocabulary.loading,
 		activeQuestion: state.vocabulary.activeQuestion,

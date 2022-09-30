@@ -7,7 +7,7 @@ export default function AnswersList({answers}) {
 	return (
 		<ul className={styles.answersList}>
 			{answers.map((answer, index) => (
-				<AnswersListItem key={Date.now() + index} answer={answer} />
+				<AnswersListItem key={index} answer={answer} />
 			))}
 		</ul>
 	);

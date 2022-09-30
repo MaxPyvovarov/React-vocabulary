@@ -45,7 +45,7 @@ function Vocabulary(props) {
 
 function mapStateToProps(state) {
 	return {
-		words: state.vocabulary.vocabulary,
+		words: state.vocabulary.words,
 	};
 }
 

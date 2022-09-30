@@ -1,12 +1,11 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import {generateTest} from '../../store/actions/vocabulary';
+import {connect} from 'react-redux';
 
 import styles from './Results.module.scss';
 
 function Results({results, vocabulary, generateTest}) {
-	console.log(results);
 	return (
 		<div className={styles.results}>
 			<h3 className={styles.heading}>Ваш результат</h3>
@@ -24,7 +23,7 @@ function Results({results, vocabulary, generateTest}) {
 function mapStateToProps(state) {
 	return {
 		results: state.vocabulary.results,
-		vocabulary: state.vocabulary.vocabulary,
+		vocabulary: state.vocabulary.words,
 	};
 }
 
