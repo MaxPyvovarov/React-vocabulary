@@ -3,7 +3,7 @@
 }
 
 .header {
-	@apply flex justify-between items-center sm:flex-col-reverse lg:flex-row;
+	@apply flex justify-between items-center sm:flex-col-reverse lg:flex-row text-lg;
 }
 
 .counter {
